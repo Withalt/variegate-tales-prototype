@@ -1,18 +1,16 @@
-# Changelog
+## v0.1.1-prototype
 
-All notable changes to this project will be documented in this file.
-
-## v0.1.0-prototype
-
-Initial combat sandbox prototype for Variegate Tale.
+Introduced the first complete level prototype with encounter flow, hazard fail states, and win/lose overlays.
 
 ### Highlights
-- Implemented the core phase-based combat loop.
-- Added player actions including attack, guard, parry, and evade.
-- Added enemy combat behavior and reaction flow.
-- Added combat HUD and feedback elements.
-- Added debug enemy freeze toggle for combat testing.
+- Added the first full prototype level flow.
+- Added encounter-triggered combat activation.
+- Added hazard fail states and goal completion.
+- Added win and game over overlays.
+- Updated scene flow to start from `Level_Proto_01.tscn`.
+- Removed the enemy freeze debug shortcut from the playable prototype.
 
-### Scope
-- This version is centered on `Level_Test.tscn`.
-- It is intended as a sandbox build for validating combat systems rather than a full level experience.
+### Known Issues
+- Combat balance is still in prototype tuning.
+- Result flow presentation is functional but still minimal.
+- Internal test content may still exist outside the main playable path.

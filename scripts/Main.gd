@@ -1,7 +1,6 @@
 extends Node
 
 func _ready() -> void:
-	# Tránh lỗi "Parent node is busy adding/removing children..."
 	call_deferred("_go_level")
 
 func _go_level() -> void:
