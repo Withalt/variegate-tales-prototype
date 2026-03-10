@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwl35vu3igiqm"]
+
+[ext_resource type="Script" uid="uid://celslyhbxghu" path="res://scripts/Enemy.gd" id="1_3gvst"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gvst"]
+radius = 362.23334
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gvst"]
+radius = 14.0
+height = 46.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(420, 420)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_3gvst")
+
+[node name="DebugBody" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -28.0
+offset_right = 14.0
+offset_bottom = 28.0
+color = Color(0.9372549, 0.26666668, 0.26666668, 1)
+
+[node name="HPFloat" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -56.0
+offset_right = 20.0
+offset_bottom = -33.0
+
+[node name="WindupFloat" type="Label" parent="."]
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 12.0
+
+[node name="EncounterArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EncounterArea"]
+shape = SubResource("CircleShape2D_3gvst")
+
+[node name="EnemyRTBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.04
+offset_top = -59.185
+offset_right = -32.04
+offset_bottom = -59.185
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bar" type="ProgressBar" parent="EnemyRTBar"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3gvst")

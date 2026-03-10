@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj0lxoj5ftt7y"]
+
+[ext_resource type="Script" uid="uid://cfghniiqspjtd" path="res://scripts/Level_Test.gd" id="1_tafej"]
+[ext_resource type="PackedScene" uid="uid://7dvcfkgmby0l" path="res://scenes/CombatManager.tscn" id="2_8vf0v"]
+[ext_resource type="PackedScene" uid="uid://i8jfsukqdrhw" path="res://scenes/Player.tscn" id="3_alce2"]
+[ext_resource type="PackedScene" uid="uid://cwl35vu3igiqm" path="res://scenes/Enemy.tscn" id="4_bfdeg"]
+[ext_resource type="PackedScene" uid="uid://cufwrggqc4bcq" path="res://scenes/HUD.tscn" id="5_1vxdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6say"]
+size = Vector2(1152, 80)
+
+[node name="Level_Test" type="Node2D"]
+script = ExtResource("1_tafej")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 520)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_n6say")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_top = -40.0
+offset_right = 1152.0
+offset_bottom = 40.0
+color = Color(0.29411766, 0.33333334, 0.3882353, 1)
+
+[node name="CombatManager" parent="." instance=ExtResource("2_8vf0v")]
+
+[node name="Player" parent="." instance=ExtResource("3_alce2")]
+position = Vector2(300, 400)
+
+[node name="Enemy" parent="." instance=ExtResource("4_bfdeg")]
+position = Vector2(850, 400)
+
+[node name="HUD" parent="." instance=ExtResource("5_1vxdp")]
+
+[node name="FloatingTextLayer" type="Node2D" parent="."]

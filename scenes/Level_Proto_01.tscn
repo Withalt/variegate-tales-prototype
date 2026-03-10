@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://r4f2qppiovkn"]
+
+[ext_resource type="Script" uid="uid://d385n37wvta08" path="res://scripts/Level_Proto_01.gd" id="1_8wdjo"]
+[ext_resource type="PackedScene" uid="uid://dgpon8t8wlfb4" path="res://scenes/KillZone.tscn" id="2_ibprb"]
+[ext_resource type="PackedScene" uid="uid://cwl35vu3igiqm" path="res://scenes/Enemy.tscn" id="3_vechq"]
+[ext_resource type="PackedScene" uid="uid://33pc3j187a8l" path="res://scenes/GoalFlag.tscn" id="4_dex1j"]
+[ext_resource type="PackedScene" uid="uid://7dvcfkgmby0l" path="res://scenes/CombatManager.tscn" id="5_ie5yp"]
+[ext_resource type="PackedScene" uid="uid://i8jfsukqdrhw" path="res://scenes/Player.tscn" id="6_jbs5w"]
+[ext_resource type="PackedScene" uid="uid://cufwrggqc4bcq" path="res://scenes/HUD.tscn" id="7_hap8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ogjw"]
+size = Vector2(600, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8nna"]
+size = Vector2(10000, 20)
+
+[node name="Level_Proto_01" type="Node2D"]
+script = ExtResource("1_8wdjo")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Terrain" type="Node2D" parent="World"]
+
+[node name="Ground_01" type="StaticBody2D" parent="World/Terrain"]
+position = Vector2(300, 533)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Terrain/Ground_01"]
+shape = SubResource("RectangleShape2D_8ogjw")
+
+[node name="ColorRect" type="ColorRect" parent="World/Terrain/Ground_01"]
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+color = Color(0.29411766, 0.33333334, 0.3882353, 1)
+
+[node name="Ground_02" type="StaticBody2D" parent="World/Terrain"]
+position = Vector2(1040, 533)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Terrain/Ground_02"]
+shape = SubResource("RectangleShape2D_8ogjw")
+
+[node name="ColorRect" type="ColorRect" parent="World/Terrain/Ground_02"]
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+color = Color(0.29411766, 0.33333334, 0.3882353, 1)
+
+[node name="Ground_03" type="StaticBody2D" parent="World/Terrain"]
+position = Vector2(1827, 533)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Terrain/Ground_03"]
+shape = SubResource("RectangleShape2D_8ogjw")
+
+[node name="ColorRect" type="ColorRect" parent="World/Terrain/Ground_03"]
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+color = Color(0.29411766, 0.33333334, 0.3882353, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Hazards" type="Node2D" parent="World"]
+
+[node name="KillZone" parent="World/Hazards" instance=ExtResource("2_ibprb")]
+position = Vector2(878, 503)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Hazards/KillZone"]
+position = Vector2(61, 653)
+shape = SubResource("RectangleShape2D_v8nna")
+
+[node name="KillZone2" parent="World/Hazards" instance=ExtResource("2_ibprb")]
+position = Vector2(846, 503)
+
+[node name="KillZone3" parent="World/Hazards" instance=ExtResource("2_ibprb")]
+position = Vector2(938, 503)
+
+[node name="Enemies" type="Node2D" parent="World"]
+
+[node name="Enemy" parent="World/Enemies" instance=ExtResource("3_vechq")]
+position = Vector2(1012, 420)
+
+[node name="Enemy2" parent="World/Enemies" instance=ExtResource("3_vechq")]
+position = Vector2(1708, 420)
+
+[node name="Enemy3" parent="World/Enemies" instance=ExtResource("3_vechq")]
+position = Vector2(1847, 420)
+
+[node name="GoalFlag" parent="World" instance=ExtResource("4_dex1j")]
+position = Vector2(2043, 411)
+
+[node name="CombatManager" parent="World" instance=ExtResource("5_ie5yp")]
+
+[node name="Player" parent="World" groups=["player"] instance=ExtResource("6_jbs5w")]
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position_smoothing_enabled = true
+
+[node name="FloatingTextLayer" type="Node2D" parent="World"]
+
+[node name="PlayerSpawn" type="Node2D" parent="World"]
+position = Vector2(200, 419)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("7_hap8h")]

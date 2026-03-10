@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cufwrggqc4bcq"]
+
+[ext_resource type="Script" uid="uid://5g0ntxvqk7xk" path="res://scripts/HUD.gd" id="1_qpvh6"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_qpvh6")
+
+[node name="PhaseLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 35.0
+text = "ENEMY PHASE"
+
+[node name="RTBar" type="ProgressBar" parent="."]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 296.0
+offset_bottom = 67.0
+max_value = 1.0
+value = 1.0
+
+[node name="HPLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 56.0
+offset_bottom = 95.0
+text = "HP: 100 / 100"
+
+[node name="DashCDLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 56.0
+offset_bottom = 123.0
+
+[node name="ParryCDLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 56.0
+offset_bottom = 151.0
+
+[node name="FreezeLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 156.0
+offset_right = 56.0
+offset_bottom = 179.0
